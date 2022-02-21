@@ -1,0 +1,36 @@
+@mixin column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @mixin row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  @mixin list{
+    @include column;
+  
+    span {
+      @include row;
+      justify-content: space-between;
+    }
+  
+    span * {
+      width: 7rem;
+      height: 7rem;
+      border: 5px solid black;
+    }
+  
+    input {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      -o-appearence: none;
+    }
+  
+    input:checked:before{
+      content: "\2714";
+      font-size: 7rem
+    }
+  }
