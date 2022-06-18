@@ -7,7 +7,7 @@ const initialState = {
     id: 0
 };
 
-export const formsLice = createSlice({
+export const formSlice = createSlice({
     name: 'form',
     initialState,
     reducer:
@@ -24,5 +24,5 @@ export const formsLice = createSlice({
     }
 });
 
-export const { editHeader, editDescription, addId } = formsLice.actions;
-export default formsLice.reducer;
+export const { editHeader, editDescription, addId } = formSlice.actions;
+export default formSlice.reducer;

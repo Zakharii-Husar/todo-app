@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteTodoAction, toggleTodoAction, fetchListAction } from './listSlice';
+import { deleteTodo, toggleTodo, fetchList } from './listSlice';
 
 function List() {
 
@@ -11,7 +11,7 @@ function List() {
     const localData = localStorage.getItem('todolist');
     if (localData) {
       const parsedData = JSON.parse(localData);
-      dispatch(fetchListAction(parsedData));
+      dispatch(fetchList(parsedData));
     }
   };
 
@@ -37,8 +37,8 @@ function List() {
           <h2>{task.description}</h2>
           <p>ADDED ON: {new Date(task.id).toString()}</p>
           <span>
-            <button onClick={() => dispatch(deleteTodoAction(task))}>DELETE</button>
-            <input type='checkbox' onChange={() => dispatch(toggleTodoAction(task))}/>
+            <button onClick={() => dispatch(deleteTodo(task))}>DELETE</button>
+            <input type='checkbox' onChange={() => dispatch(toggleTodo(task))}/>
           </span>
         </div>)
       })}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createTodoAction } from '../list/listSlice';
-import { editHeaderAction, editDescriptionAction, addIdAction } from './formSlice';
+import { createTodo } from '../list/listSlice';
+import { editHeader, editDescription, addId } from './formSlice';
 
 function Form() {
 
@@ -10,19 +10,19 @@ function Form() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    dispatch(addIdAction(Date.now()))
+    dispatch(addId(Date.now()))
   }, [list])
 
   const newTask = () => {
-    dispatch(createTodoAction(form));
-    dispatch(editHeaderAction(''));
-    dispatch(editDescriptionAction(''));
+    dispatch(createTodo(form));
+    dispatch(editHeader(''));
+    dispatch(editDescription(''));
   };
 
   return (
     <div className="Form">
-      <input value={form.header} type='text' onChange={(e) => dispatch(editHeaderAction(e.target.value))} />
-      <textarea value={form.description} type='text' onChange={(e) => dispatch(editDescriptionAction(e.target.value))} />
+      <input value={form.header} type='text' onChange={(e) => dispatch(editHeader(e.target.value))} />
+      <textarea value={form.description} type='text' onChange={(e) => dispatch(editDescription(e.target.value))} />
       <button onClick={newTask}>Create Task</button>
     </div>
   );

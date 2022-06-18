@@ -5,7 +5,7 @@ import { formSlice } from "../features/form/formSlice";
 
 export const store = configureStore({
     reducer: {
-        list: listSlice,
-        form: formSlice
+        list: listSlice.reducer,
+        form: formSlice.reducer
     }
 })

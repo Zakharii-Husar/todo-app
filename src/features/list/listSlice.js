@@ -19,11 +19,11 @@ export const listSlice = createSlice({
             { ...action.payload, done: !action.payload.done },
             ...state.slice(currentIndex + 1)]
         },
-        fetchListAction: (action) => {
+        fetchList: (action) => {
             return action.payload
         }
     }
 });
 
-export const { createTodo, deleteTodo, toggleTodo, fetchListAction } = listSlice.actions;
+export const { createTodo, deleteTodo, toggleTodo, fetchList } = listSlice.actions;
 export default listSlice.reducer;
