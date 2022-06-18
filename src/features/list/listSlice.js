@@ -1,53 +1,29 @@
+import { createSlice } from '@reduxjs/toolkit';
 const initialState = [];
 
-export const listReducer = (state = initialState, action) => {
-    switch(action.type){
-        case 'list/createTodo': {
+export const listSlice = createSlice({
+    name: 'list',
+    initialState,
+    reducer:
+    {
+        createTodo: (state, action) => {
             return [...state, action.payload]
-        }
-        case 'list/deleteTodo': {
+        },
+        deleteTodo: (state, action) => {
             return state.filter(todo => todo !== action.payload)
-        }
-        case 'list/toggleTodo': {
+        },
+        toggleTodo: (state, action) => {
             const currentIndex = state.indexOf(action.payload);
 
-            return [...state.slice(0, currentIndex), 
-                {...action.payload, done: !action.payload.done},
+            return [...state.slice(0, currentIndex),
+            { ...action.payload, done: !action.payload.done },
             ...state.slice(currentIndex + 1)]
-        }
-        case 'list/fetchListAction': {
+        },
+        fetchListAction: (action) => {
             return action.payload
         }
-        default: {
-            return state
-        }
     }
-};
+});
 
-export const createTodoAction = todo =>{
-    return {
-        type: 'list/createTodo',
-        payload: todo
-    }
-}
-
-export const deleteTodoAction = todo =>{
-    return {
-        type: 'list/deleteTodo',
-        payload: todo
-    }
-}
-
-export const toggleTodoAction = todo => {
-    return {
-        type: 'list/toggleTodo',
-        payload: todo
-    }
-}
-
-export const fetchListAction = todo => {
-    return {
-        type: 'list/fetchListAction',
-        payload: todo
-    }
-}
+export const { createTodo, deleteTodo, toggleTodo, fetchListAction } = listSlice.actions;
+export default listSlice.reducer;

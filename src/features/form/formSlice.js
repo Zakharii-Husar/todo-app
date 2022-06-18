@@ -1,3 +1,5 @@
+import { createSlice } from '@reduxjs/toolkit';
+
 const initialState = {
     header: '',
     description: '',
@@ -5,40 +7,22 @@ const initialState = {
     id: 0
 };
 
-export const formReducer = (state = initialState, action) => {
-    switch(action.type){
-        case 'form/editHeader': {
+export const formsLice = createSlice({
+    name: 'form',
+    initialState,
+    reducer:
+    {
+        editHeader: (state, action) => {
             return {...state, header: action.payload}
-        }
-        case 'form/editDescription': {
+        },
+        editDescription: (state, action) => {
             return {...state, description: action.payload}
-        }
-        case 'form/addId': {
+        },
+        addId: (state, action) => {
             return {...state, id: action.payload}
         }
-        default: {
-            return state
-        }
     }
-};
+});
 
-export const editHeaderAction = todo =>{
-    return {
-        type: 'form/editHeader',
-        payload: todo
-    }
-}
-
-export const editDescriptionAction = todo =>{
-    return {
-        type: 'form/editDescription',
-        payload: todo
-    }
-}
-
-export const addIdAction = todo =>{
-    return {
-        type: 'form/addId',
-        payload: todo
-    }
-}
+export const { editHeader, editDescription, addId } = formsLice.actions;
+export default formsLice.reducer;

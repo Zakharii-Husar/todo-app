@@ -1,12 +1,11 @@
-import { createStore, combineReducers } from "redux";
-import { listReducer } from "../features/list/listSlice";
-import { formReducer } from "../features/form/formSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { listSlice } from "../features/list/listSlice";
+import { formSlice } from "../features/form/formSlice";
 
-const reducers = {
-    list: listReducer,
-    form: formReducer
-};
 
-const rootReducer = combineReducers(reducers);
-
-export const store = createStore(rootReducer);
+export const store = configureStore({
+    reducer: {
+        list: listSlice,
+        form: formSlice
+    }
+})
