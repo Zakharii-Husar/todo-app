@@ -4,7 +4,7 @@ const initialState = [];
 export const listSlice = createSlice({
     name: 'list',
     initialState,
-    reducer:
+    reducers:
     {
         createTodo: (state, action) => {
             return [...state, action.payload]

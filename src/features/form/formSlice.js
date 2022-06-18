@@ -10,7 +10,7 @@ const initialState = {
 export const formSlice = createSlice({
     name: 'form',
     initialState,
-    reducer:
+    reducers:
     {
         editHeader: (state, action) => {
             return {...state, header: action.payload}
@@ -24,5 +24,5 @@ export const formSlice = createSlice({
     }
 });
 
-export const { editHeader, editDescription, addId } = formSlice.actions;
+export const { editHeader, editDescription, addId } = formSlice.actions
 export default formSlice.reducer;

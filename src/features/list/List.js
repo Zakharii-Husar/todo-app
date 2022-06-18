@@ -30,8 +30,8 @@ function List() {
 
   return (
     <div className="List">
-      {list.map(task => {
-        return (<div className="listContainer" key={task.id}
+      {list.map((task, index) => {
+        return (<div className="listContainer" key={task.id + index}
           style={task.done ? { backgroundColor: 'green' } : { backgroundColor: 'red' }}>
           <h1>{task.header}</h1>
           <h2>{task.description}</h2>
