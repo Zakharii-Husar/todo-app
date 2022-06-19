@@ -23,9 +23,9 @@ function Form() {
   return (
     <div className="Form">
       <span>
-        <label for='header'>Task name:</label>
+        <label htmlFor='header'>Task name:</label>
         <input id='header' value={form.header} type='text' onChange={(e) => dispatch(editHeader(e.target.value))} />
-        <label for='description'>Description:</label>
+        <label htmlFor='description'>Description:</label>
         <textarea id='description' value={form.description} type='text' onChange={(e) => dispatch(editDescription(e.target.value))} />
       </span>
       <button onClick={newTask}>ADD NEW TASK</button>
