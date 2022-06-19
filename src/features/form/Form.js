@@ -9,11 +9,12 @@ function Form() {
   const form = useSelector(state => state.form);
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(addId(Date.now()))
   }, [list])
 
   const newTask = () => {
+    if (!form.header) return;
     dispatch(createTodo(form));
     dispatch(editHeader(''));
     dispatch(editDescription(''));
@@ -21,9 +22,13 @@ function Form() {
 
   return (
     <div className="Form">
-      <input value={form.header} type='text' onChange={(e) => dispatch(editHeader(e.target.value))} />
-      <textarea value={form.description} type='text' onChange={(e) => dispatch(editDescription(e.target.value))} />
-      <button onClick={newTask}>Create Task</button>
+      <span>
+        <label for='header'>Task name:</label>
+        <input id='header' value={form.header} type='text' onChange={(e) => dispatch(editHeader(e.target.value))} />
+        <label for='description'>Description:</label>
+        <textarea id='description' value={form.description} type='text' onChange={(e) => dispatch(editDescription(e.target.value))} />
+      </span>
+      <button onClick={newTask}>ADD NEW TASK</button>
     </div>
   );
 }

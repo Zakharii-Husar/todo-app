@@ -7,20 +7,17 @@ export const listSlice = createSlice({
     reducers:
     {
         createTodo: (state, action) => {
-            return [...state, action.payload]
+            state.push(action.payload)
         },
         deleteTodo: (state, action) => {
-            return state.filter(todo => todo !== action.payload)
+            return state.filter(task => task.id != action.payload.id)
         },
         toggleTodo: (state, action) => {
-            const currentIndex = state.indexOf(action.payload);
-
-            return [...state.slice(0, currentIndex),
-            { ...action.payload, done: !action.payload.done },
-            ...state.slice(currentIndex + 1)]
+            const currentIndex = state.findIndex(task => task.id == action.payload.id);
+            state[currentIndex].done = !action.payload.done;
         },
-        fetchList: (action) => {
-            return action.payload
+        fetchList: (state, action) => {
+            return state = action.payload
         }
     }
 });

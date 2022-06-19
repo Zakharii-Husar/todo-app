@@ -1,36 +1,44 @@
-@mixin column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  @mixin row {
+$checkedColor: rgb(7, 44, 102);
+
+@mixin listStyle {
+  display: flex;
+  flex-direction: column;
+
+  span {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
-  
-  
-  @mixin list{
-    @include column;
-  
-    span {
-      @include row;
-      justify-content: space-between;
-    }
-  
-    span * {
-      width: 7rem;
-      height: 7rem;
-      border: 5px solid black;
-    }
-  
-    input {
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      -o-appearence: none;
-    }
-  
-    input:checked:before{
-      content: "\2714";
-      font-size: 7rem
-    }
+
+  span * {
+    width: 5rem;
+    height: 5rem;
+    border: solid blue;
+    background-color: black;
+    border-radius: 22px;
+    cursor: pointer;
   }
+
+  button{
+
+  }
+  button::after {
+    font-size: 4rem;
+    color: red;
+    display: inline-block;
+    content: "\00d7";
+  }
+
+  input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearence: none;
+  }
+
+  input:checked:before {
+    display: inline-block;
+    content: "\2714";
+    font-size: 5rem;
+    color: $checkedColor;
+  }
+}

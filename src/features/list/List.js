@@ -32,13 +32,13 @@ function List() {
     <div className="List">
       {list.map((task, index) => {
         return (<div className="listContainer" key={task.id + index}
-          style={task.done ? { backgroundColor: 'green' } : { backgroundColor: 'red' }}>
+          style={task.done ? { backgroundColor: 'green', transition: 'background 500ms' } : { backgroundColor: 'grey', transition: 'background 500ms' }}>
           <h1>{task.header}</h1>
           <h2>{task.description}</h2>
           <p>ADDED ON: {new Date(task.id).toString()}</p>
           <span>
-            <button onClick={() => dispatch(deleteTodo(task))}>DELETE</button>
-            <input type='checkbox' onChange={() => dispatch(toggleTodo(task))}/>
+            <button onClick={() => dispatch(deleteTodo(task))}></button>
+            <input type='checkbox' checked={task.done} onChange={() => dispatch(toggleTodo(task))}/>
           </span>
         </div>)
       })}

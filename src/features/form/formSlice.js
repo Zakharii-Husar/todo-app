@@ -13,13 +13,13 @@ export const formSlice = createSlice({
     reducers:
     {
         editHeader: (state, action) => {
-            return {...state, header: action.payload}
+            state.header = action.payload
         },
         editDescription: (state, action) => {
-            return {...state, description: action.payload}
+            state.description = action.payload
         },
         addId: (state, action) => {
-            return {...state, id: action.payload}
+            state.id = action.payload
         }
     }
 });

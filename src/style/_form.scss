@@ -1,0 +1,43 @@
+$formBg: grey;
+@mixin  formStyle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    span{
+        display: grid;
+        grid-template-columns: [first] auto [second] 1fr;
+        width: 100%;
+    }
+
+    span * {
+        background-color: $formBg;
+        border: 2px solid black;
+    }
+
+    input{
+        height: 4vh;
+    }
+
+    textarea{
+        height: 10vh;
+    }
+
+    textarea:focus, input:focus{
+        border: 3px solid blue;
+    }
+
+    label{
+        text-align: right;
+        font-weight: 900;
+        font-style: oblique;
+    }
+
+    button{
+        color: rgb(228, 249, 38);
+        background-color: black;
+        
+        cursor: pointer;
+        width: 10vh;
+        height: 1fr;
+    }
+}
