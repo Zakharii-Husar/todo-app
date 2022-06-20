@@ -38,7 +38,7 @@ $checkedColor: rgb(7, 44, 102);
   input:checked:before {
     display: inline-block;
     content: "\2714";
-    font-size: 5rem;
+    font-size: 4rem;
     color: $checkedColor;
   }
 }
